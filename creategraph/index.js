@@ -55,9 +55,9 @@ exports.scraping = functions.runWith(scrapeRuntimeOpts).region('asia-northeast1'
     indexed: true
   });
 
-  let page = 1;
+  let p = 1;
   while(true){
-    let url = `https://xxx.com/${targetUser}?page=${page.toString()}`;
+    let url = `https://xxx.com/${targetUser}?page=${p.toString()}`;
     console.log("target page :", url);
 
     await page.goto(url, { waitUntil: 'domcontentloaded' });
@@ -102,7 +102,7 @@ exports.scraping = functions.runWith(scrapeRuntimeOpts).region('asia-northeast1'
       });
     })
 
-    page += 1;
+    p += 1;
   }
 
   return await browser.close();
